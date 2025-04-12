@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /school_portal/
+
+# Redirect index.html to index.php
+RewriteRule ^index\.html$ index.php [L,R=301]
+
+# If the requested file doesn't exist, try adding .php extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\.html$ $1.php [L] 
